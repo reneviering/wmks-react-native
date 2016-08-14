@@ -12,5 +12,6 @@ import {
   View
 } from 'react-native';
 
-import MainComponent from './app/components/index.js';
+import MainComponent from './app/index.js';
+
 AppRegistry.registerComponent('webmontag', () => MainComponent);
