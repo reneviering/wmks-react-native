@@ -34,28 +34,24 @@ const initialState:ArticleListState = {
 	title: 'Hacker News!',
 	changeSourceVisible: false,
 	articleDetailsVisible: false,
-	articles: [{
-		author: 'René Viering',
-		description: 'description',
-		title: 'Slack System Status',
-		url: 'http://www.google.de',
-		urlToImage: 'http://www.google.de',
-		publishedAt: '01.01.2016'
-	},
-	{
-		author: 'René Viering',
-		description: 'description',
-		title: 'Slack System Status',
-		url: 'http://www.google.de',
-		urlToImage: 'http://www.google.de',
-		publishedAt: '01.01.2016'
-	}],
+	articles: [],
 	selectedArticle: null
 };
 
 const ArticleList = React.createClass({
 	getInitialState() {
 		return initialState;
+	},
+
+	componentDidMount() {
+		this.props.store.subscribe(() => {
+			const currentState = this.props.store.getState();
+			this.setState(Object.assign({}, this.state, {
+				articles: currentState.articles
+			}))
+		});
+
+		this.props.actionCreator.requestArticles('focus');
 	},
 
 	openChangeSource() {
