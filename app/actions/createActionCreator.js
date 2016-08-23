@@ -1,4 +1,4 @@
-import {getArticles} from '../dataprovider.js';
+import {getArticles, getSources} from '../dataprovider.js';
 
 const createActionCreator = (store) => {
 	const requestArticles = (source) => {
@@ -7,11 +7,32 @@ const createActionCreator = (store) => {
 				store.dispatch({
 					type: 'RECEIVE_ARTICLES',
 					articles: articles
-				})
+				});
 			});
 	};
 
-	return {requestArticles};
+	const requestSources = () => {
+		getSources()
+			.then(sources => {
+				store.dispatch({
+					type: 'RECEIVE_SOURCES',
+					sources: sources
+				});
+			});
+	};
+
+	const changeSource = (source) => {
+		return getArticles(source)
+			.then(articles => {
+				store.dispatch({
+					type: 'CHANGE_SOURCE',
+					articles: articles,
+					source: source
+				});
+			});
+	};
+
+	return {requestArticles, requestSources, changeSource};
 }
 
 export default createActionCreator;

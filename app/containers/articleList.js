@@ -21,11 +21,27 @@ type Article = {
 	publishedAt: string
 };
 
+type Source = {
+	id: string,
+	name: string,
+	description: string,
+	url: string,
+	urlsToLogos: {
+		small: string,
+		medium: string,
+		large: string
+	}
+};
+
 type ArticleListState = {
 	title: string,
 	changeSourceVisible: bool,
 	articleDetailsVisible: bool,
 	articles: Array<Article>,
+	sources: {
+		sources: Array<Source>,
+		selectedSource: string
+	},
 	selectedArticle: ?Article
 };
 
@@ -35,6 +51,10 @@ const initialState:ArticleListState = {
 	changeSourceVisible: false,
 	articleDetailsVisible: false,
 	articles: [],
+	sources: {
+		sources: [],
+		selectedSource: 'hacker-news'
+	},
 	selectedArticle: null
 };
 
@@ -47,11 +67,13 @@ const ArticleList = React.createClass({
 		this.props.store.subscribe(() => {
 			const currentState = this.props.store.getState();
 			this.setState(Object.assign({}, this.state, {
-				articles: currentState.articles
+				articles: currentState.articles,
+				sources: currentState.sources,
 			}))
 		});
 
-		this.props.actionCreator.requestArticles('focus');
+		this.props.actionCreator.requestSources();
+		this.props.actionCreator.requestArticles(this.state.sources.selectedSource);
 	},
 
 	openChangeSource() {
@@ -79,15 +101,22 @@ const ArticleList = React.createClass({
 		}));
 	},
 
+	getTitle() {
+		if (this.state.sources.sources.length === 0) {
+			return '';
+		}
+		return this.state.sources.sources.find(source => source.id === this.state.sources.selectedSource).name;
+	},
+
 	render() {
 		return (
 			<View style={{flex: 1}}>
-				<Header title={this.state.title} onItemClicked={this.openChangeSource} iconType="change"/>
+				<Header title={this.getTitle()} onItemClicked={this.openChangeSource} iconType="change"/>
 
 				<ArticleListView articles={this.state.articles} onSelectArticle={this.openArticleDetails} style={{flex: 1}}/>
 
 				<Modal animationType={'slide'} visible={this.state.changeSourceVisible} transparent={false}>
-					<ChangeSource closeModal={this.closeChangeSource}/>
+					<ChangeSource closeModal={this.closeChangeSource} sources={this.state.sources} actionCreator={this.props.actionCreator}/>
 				</Modal>
 
 				<Modal animationType={'slide'} visible={this.state.articleDetailsVisible} transparent={false}>

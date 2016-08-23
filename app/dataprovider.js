@@ -11,6 +11,6 @@ export const getSources = () => {
 	return fetch(`https://newsapi.org/v1/sources?apiKey=${NEWSAPI_KEY}`)
 		 .then((response) => response.json())
 		 .then((response) => {
-			 return response;
+			 return response.sources;
 		 });
 };
