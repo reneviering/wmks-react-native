@@ -9,7 +9,7 @@ import Header from '../components/header.js';
 const ChangeSource = ({closeModal}) => {
 	return (
 		<View>
-			<Header title="Change Source" onItemClicked={closeModal}/>
+			<Header title="Change Source" onItemClicked={closeModal} iconType="cross"/>
 		</View>
 	);
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import {
 	View,
 	Text,
+	Image,
 	StyleSheet,
 	Platform,
 	TouchableHighlight
@@ -25,20 +26,30 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		fontSize: 20,
 		flex: 1,
-		textAlign: 'center'
+		textAlign: 'center',
+		marginLeft: 10
 	}
 });
 
-const Header = ({title, onItemClicked}) => {
+const getIcon = (iconType) => {
+	if (iconType === 'change') {
+		return <Image source={ require('../../assets/img/change.png')} style={{width:40, height:40}}/>;
+	}
+
+	return <Image source={ require('../../assets/img/cross.png')} style={{width:40, height:40}}/>;
+}
+
+const Header = ({title, onItemClicked, iconType}) => {
+	const icon = getIcon(iconType);
 	return (
 		<View style={styles.container}>
 			<TouchableHighlight onPress={onItemClicked} underlayColor="transparent">
 				<View style={styles.icon}>
-	   			<Text>Icon</Text>
+					{icon}
 	   		</View>
    		</TouchableHighlight>
 
-			<Text style={styles.title}>{title}</Text>
+			<Text numberOfLines={1} style={styles.title}>{title}</Text>
 		</View>
 	);
 };

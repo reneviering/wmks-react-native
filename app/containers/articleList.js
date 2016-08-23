@@ -82,7 +82,7 @@ const ArticleList = React.createClass({
 	render() {
 		return (
 			<View style={{flex: 1}}>
-				<Header title={this.state.title} onItemClicked={this.openChangeSource}/>
+				<Header title={this.state.title} onItemClicked={this.openChangeSource} iconType="change"/>
 
 				<ArticleListView articles={this.state.articles} onSelectArticle={this.openArticleDetails} style={{flex: 1}}/>
 

@@ -10,7 +10,7 @@ import Header from '../components/header.js';
 const ChangeSource = ({closeModal, selectedArticle}) => {
 	return (
 		<View style={{flex: 1}}>
-			<Header title="Article Details" onItemClicked={closeModal}/>
+			<Header title={selectedArticle.title} onItemClicked={closeModal} iconType="cross"/>
 			<WebView source={{uri: selectedArticle.url}}/>
 		</View>
 	);
