@@ -4,7 +4,8 @@ import {
 	View,
 	Text,
 	Modal,
-	ScrollView
+	ScrollView,
+	StatusBar
 } from 'react-native';
 
 import Header from '../components/header.js';
@@ -111,6 +112,7 @@ const ArticleList = React.createClass({
 	render() {
 		return (
 			<View style={{flex: 1}}>
+				<StatusBar barStyle="light-content"/>
 				<Header title={this.getTitle()} onItemClicked={this.openChangeSource} iconType="change"/>
 
 				<ArticleListView articles={this.state.articles} onSelectArticle={this.openArticleDetails} style={{flex: 1}}/>
