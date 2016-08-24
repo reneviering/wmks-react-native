@@ -8,28 +8,32 @@ import {
 	TouchableHighlight
 } from 'react-native';
 
-const styles = StyleSheet.create({
-	container: {
-		backgroundColor: '#34495E',
-		height: (Platform.OS === 'ios') ? 80 : 60,
-		paddingTop: (Platform.OS === 'ios') ? 20 : 0,
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	icon: {
-		width: 50,
-		padding: 10
-	},
-	title: {
-		color: 'white',
-		fontWeight: 'bold',
-		fontSize: 20,
-		flex: 1,
-		textAlign: 'center',
-		marginLeft: 10
-	}
-});
+const createStyles = (title) => {
+	return StyleSheet.create({
+		container: {
+			backgroundColor: '#34495E',
+			height: (Platform.OS === 'ios') ? 80 : 60,
+			paddingTop: (Platform.OS === 'ios') ? 20 : 0,
+			flexDirection: 'row',
+			justifyContent: 'center',
+			alignItems: 'center'
+		},
+		icon: {
+			width: 50,
+			padding: 10
+		},
+		title: {
+			color: 'white',
+			fontWeight: 'bold',
+			fontSize: 20,
+			flex: 1,
+			textAlign: 'center',
+			paddingLeft: title.length < 20 ? -50 : 0,
+			marginLeft: title.length < 20 ? 0: 15
+		}
+	});
+};
+
 
 const getIcon = (iconType) => {
 	if (iconType === 'change') {
@@ -40,6 +44,7 @@ const getIcon = (iconType) => {
 }
 
 const Header = ({title, onItemClicked, iconType}) => {
+	const styles = createStyles(title);
 	const icon = getIcon(iconType);
 	return (
 		<View style={styles.container}>
