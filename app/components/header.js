@@ -35,22 +35,22 @@ const createStyles = (title) => {
 };
 
 
-const getIcon = (iconType) => {
+/*const getIcon = (iconType) => {
 	if (iconType === 'change') {
 		return <Image source={ require('../../assets/img/change.png')} style={{width:40, height:40}}/>;
 	}
 
 	return <Image source={ require('../../assets/img/cross.png')} style={{width:40, height:40}}/>;
-}
+}*/
 
 const Header = ({title, onItemClicked, iconType}) => {
 	const styles = createStyles(title);
-	const icon = getIcon(iconType);
+	//const icon = getIcon(iconType);
 	return (
 		<View style={styles.container}>
 			<TouchableHighlight onPress={onItemClicked} underlayColor="transparent">
 				<View style={styles.icon}>
-					{icon}
+					{/*icon*/}
 	   		</View>
    		</TouchableHighlight>
 

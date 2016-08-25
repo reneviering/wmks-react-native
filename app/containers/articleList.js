@@ -112,18 +112,18 @@ const ArticleList = React.createClass({
 	render() {
 		return (
 			<View style={{flex: 1}}>
-				<StatusBar barStyle="light-content"/>
+				{/*<StatusBar barStyle="light-content"/>*/}
 				<Header title={this.getTitle()} onItemClicked={this.openChangeSource} iconType="change"/>
 
 				<ArticleListView articles={this.state.articles} onSelectArticle={this.openArticleDetails} style={{flex: 1}}/>
 
-				<Modal animationType={'slide'} visible={this.state.changeSourceVisible} transparent={false} onRequestClose={() => {}}>
+				{/*<Modal animationType={'slide'} visible={this.state.changeSourceVisible} transparent={false} onRequestClose={() => {}}>
 					<ChangeSource closeModal={this.closeChangeSource} sources={this.state.sources} actionCreator={this.props.actionCreator}/>
 				</Modal>
 
 				<Modal animationType={'slide'} visible={this.state.articleDetailsVisible} transparent={false}  onRequestClose={() => {}}>
 					<ArticleDetails closeModal={this.closeArticleDetails} selectedArticle={this.state.selectedArticle}/>
-				</Modal>
+				</Modal>*/}
 			</View>
 		);
 	}
