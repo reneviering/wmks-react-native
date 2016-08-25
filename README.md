@@ -12,9 +12,10 @@ These are the prerequisites for React Native. You can read more about the basic 
 	$ brew install watchman
 	$ npm install -g react-native-cli
 	
-Now you need to install all npm dependencies:
+Now clone the repo and install all npm dependencies:
 
-	$ npm install
+	$ git clone https://github.com/revrng/wmks-react-native.git
+	$ cd wmks-react-native && npm install
 
 ### Configuring the API-Key for https://newsapi.org
 To use the JSON-API of https://newsapi.org you need to register an api-key (https://newsapi.org/register). Don't worry, it's free. 
