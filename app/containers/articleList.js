@@ -117,11 +117,11 @@ const ArticleList = React.createClass({
 
 				<ArticleListView articles={this.state.articles} onSelectArticle={this.openArticleDetails} style={{flex: 1}}/>
 
-				<Modal animationType={'slide'} visible={this.state.changeSourceVisible} transparent={false}>
+				<Modal animationType={'slide'} visible={this.state.changeSourceVisible} transparent={false} onRequestClose={() => {}}>
 					<ChangeSource closeModal={this.closeChangeSource} sources={this.state.sources} actionCreator={this.props.actionCreator}/>
 				</Modal>
 
-				<Modal animationType={'slide'} visible={this.state.articleDetailsVisible} transparent={false}>
+				<Modal animationType={'slide'} visible={this.state.articleDetailsVisible} transparent={false}  onRequestClose={() => {}}>
 					<ArticleDetails closeModal={this.closeArticleDetails} selectedArticle={this.state.selectedArticle}/>
 				</Modal>
 			</View>
