@@ -12,7 +12,7 @@ These are the prerequisites for React Native. You can read more about the basic 
 	$ brew install watchman
 	$ npm install -g react-native-cli
 	
-Now you need to install all project dependencies by executing the following commands in the terminal:
+Now you need to install all npm dependencies:
 
 	$ npm install
 
