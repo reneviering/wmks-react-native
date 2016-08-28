@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import {
 	View,
@@ -13,41 +12,7 @@ import ChangeSource from '../containers/changeSource.js';
 import ArticleDetails from '../containers/articleDetails.js';
 import ArticleListView from '../components/articleListView.js';
 
-type Article = {
-	author: string,
-	description: string,
-	title: string,
-	url: string,
-	urlToImage: string,
-	publishedAt: string
-};
-
-type Source = {
-	id: string,
-	name: string,
-	description: string,
-	url: string,
-	urlsToLogos: {
-		small: string,
-		medium: string,
-		large: string
-	}
-};
-
-type ArticleListState = {
-	title: string,
-	changeSourceVisible: bool,
-	articleDetailsVisible: bool,
-	articles: Array<Article>,
-	sources: {
-		sources: Array<Source>,
-		selectedSource: string
-	},
-	selectedArticle: ?Article
-};
-
-
-const initialState:ArticleListState = {
+const initialState = {
 	title: 'Hacker News!',
 	changeSourceVisible: false,
 	articleDetailsVisible: false,
@@ -89,7 +54,7 @@ const ArticleList = React.createClass({
 		}));
 	},
 
-	openArticleDetails(selectedArticle:Article) {
+	openArticleDetails(selectedArticle) {
 		this.setState(Object.assign({}, this.state, {
 			articleDetailsVisible: true,
 			selectedArticle: selectedArticle
