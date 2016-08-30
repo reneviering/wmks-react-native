@@ -17,6 +17,9 @@ Now clone the repo and install all npm dependencies:
 	$ git clone https://github.com/revrng/wmks-react-native.git
 	$ cd wmks-react-native && npm install
 
+### Xcode needed!
+Make sure you have Xcode installed. Furthermore you need an apple developer account. The good news: you don't need a payed developer account for running the app on your device. Only if you want to publish the app, you need the payed account.
+
 ### Configuring the API-Key for https://newsapi.org
 To use the JSON-API of https://newsapi.org you need to register an api-key (https://newsapi.org/register). Don't worry, it's free. 
 
