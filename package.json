@@ -3,12 +3,22 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts app/**/*.spec.js"
   },
   "dependencies": {
     "react": "^15.3.0",
     "react-native": "^0.32.0",
     "redux": "^3.5.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "enzyme": "^2.4.1",
+    "istanbul": "^1.0.0-alpha.2",
+    "mocha": "^3.0.2",
+    "mockery": "^1.7.0",
+    "react-dom": "^15.3.1",
+    "react-native-mock": "^0.2.6",
+    "sinon": "^1.17.5"
+  }
 }
