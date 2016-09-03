@@ -1,4 +1,4 @@
-import React, { View, Text, StyleSheet } from 'react-native';
+import React from 'react-native';
 import mockery from "mockery";
 
 mockery.enable({
