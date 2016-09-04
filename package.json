@@ -15,6 +15,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "enzyme": "^2.4.1",
+    "fetch-mock": "^5.1.1",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^3.0.2",
     "mockery": "^1.7.0",

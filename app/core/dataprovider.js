@@ -1,4 +1,4 @@
-import apiKey from '../env/apikey.js';
+import apiKey from '../../env/apikey.js';
 
 export const getArticles = (source) => {
 	return fetch(`https://newsapi.org/v1/articles?source=${source}&apiKey=${apiKey}`)

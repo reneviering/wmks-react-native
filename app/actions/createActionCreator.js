@@ -1,4 +1,4 @@
-import {getArticles, getSources} from '../dataprovider.js';
+import {getArticles, getSources} from '../core/dataprovider.js';
 
 const createActionCreator = (store) => {
 	const requestArticles = (source) => {
