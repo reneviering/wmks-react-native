@@ -1,4 +1,7 @@
-import apiKey from '../../env/apikey.js';
+let apiKey = 'fake-api-key';
+if(typeof global.__TEST__ === 'undefined') {
+	apiKey = require('../../env/apikey.js');
+}
 
 export const getArticles = (source) => {
 	return fetch(`https://newsapi.org/v1/articles?source=${source}&apiKey=${apiKey}`)

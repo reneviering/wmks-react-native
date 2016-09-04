@@ -1,4 +1,5 @@
 "use strict";
+global.__TEST__ = true;
 
 var chai = require("chai");
 var sinon = require('sinon');

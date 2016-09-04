@@ -1,5 +1,5 @@
 var fetchMock = require('fetch-mock');
-import apiKey from '../../../env/apikey.js';
+let apiKey = 'fake-api-key';
 
 const getArticlesResult = {
 	articles: [
