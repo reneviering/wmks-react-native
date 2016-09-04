@@ -31,6 +31,6 @@ describe('sources reducer', () => {
 			type: 'CHANGE_SOURCE',
 			source: 'BBC'
 		};
-		expect(sut(InitialState, action).selectedSource).to.deep.equal('BBC');
+		expect(sut(initialState, action).selectedSource).to.deep.equal('BBC');
 	});
 });

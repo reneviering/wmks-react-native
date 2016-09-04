@@ -9,5 +9,5 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import MainComponent from './app/index.js';
+import MainComponent from './app/components/index.js';
 AppRegistry.registerComponent('webmontag', () => MainComponent);
