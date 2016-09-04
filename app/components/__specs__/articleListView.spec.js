@@ -1,4 +1,8 @@
-import React from 'react-native';
+import sinon from 'sinon';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
+chai.use(sinonChai);
+import React, {TouchableHighlight} from 'react-native';
 import mockery from "mockery";
 
 mockery.enable({
@@ -18,4 +22,14 @@ describe('<ArticleListView />', () => {
     const wrapper = shallow(<ArticleListView articles={articles} onSelectArticle={onSelectArticle}/>);
     expect(wrapper.length).to.equal(1);
   });
+
+	describe('touching on an article', () => {
+		it('invokes the onSelectedArticle callback', () => {
+			const articles= [{name: 'articleName'}, {name: 'articleName'}]
+			const onSelectArticle = sinon.spy();
+			const wrapper = shallow(<ArticleListView articles={articles} onSelectArticle={onSelectArticle}/>);
+			wrapper.find(TouchableHighlight).first().simulate('press');
+			expect(onSelectArticle).to.have.been.called;
+		});
+	});
 });

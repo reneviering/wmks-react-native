@@ -1,4 +1,9 @@
-import React from 'react-native';
+import sinon from 'sinon';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
+chai.use(sinonChai);
+
+import React, {TouchableHighlight} from 'react-native';
 import mockery from "mockery";
 
 mockery.enable({
@@ -18,5 +23,16 @@ describe('<ChangeSourceListItem />', () => {
 		const changeSource = () => {};
     const wrapper = shallow(<ChangeSourceListItem source={source} changeSource={changeSource} selectedSource={selectedSource}/>);
     expect(wrapper.length).to.equal(1);
+  });
+
+  describe('touching on the changeSourceListItem', () => {
+    it('invokes the changeSource callback', () => {
+      const source={name: 'sourceName', urlsToLogos: {small: 'small/url'}};
+      const selectedSource = 'bbc';
+      const changeSource = sinon.spy();;
+      const wrapper = shallow(<ChangeSourceListItem source={source} changeSource={changeSource} selectedSource={selectedSource}/>);
+      wrapper.find(TouchableHighlight).first().simulate('press');
+      expect(changeSource).to.have.been.called;
+    });
   });
 });
