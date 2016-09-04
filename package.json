@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts app/**/*.spec.js"
+    "test": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts app/**/*.spec.js",
+    "test:watch": "mocha app/**/*.spec.js --opts mocha.opts  --watch"
   },
   "dependencies": {
     "react": "^15.3.0",
