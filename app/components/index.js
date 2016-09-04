@@ -4,8 +4,6 @@ import {
 	Text
 } from 'react-native';
 import {createStore, combineReducers} from 'redux';
-import {getApiKey} from '../../env/apikeys.js';
-//const apikey = 'bla';
 
 import ArticleList from '../containers/articleList.js';
 import articlesReducer from '../reducers/articles.js';
@@ -14,7 +12,7 @@ import createActionCreator from '../actions/createActionCreator.js';
 
 const rootReducer = combineReducers({articles: articlesReducer, sources: sourcesReducer});
 const store = createStore(rootReducer);
-const actionCreator = createActionCreator(store, getApiKey());
+const actionCreator = createActionCreator(store);
 
 
 const MainComponent = React.createClass({

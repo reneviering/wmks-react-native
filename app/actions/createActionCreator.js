@@ -1,8 +1,8 @@
 import {getArticles, getSources} from '../dataprovider.js';
 
-const createActionCreator = (store, apikey) => {
+const createActionCreator = (store) => {
 	const requestArticles = (source) => {
-		getArticles(source, apikey)
+		getArticles(source)
 			.then(articles => {
 				store.dispatch({
 					type: 'RECEIVE_ARTICLES',
@@ -12,7 +12,7 @@ const createActionCreator = (store, apikey) => {
 	};
 
 	const requestSources = () => {
-		getSources(apikey)
+		getSources()
 			.then(sources => {
 				store.dispatch({
 					type: 'RECEIVE_SOURCES',
@@ -22,7 +22,7 @@ const createActionCreator = (store, apikey) => {
 	};
 
 	const changeSource = (source) => {
-		return getArticles(source, apikey)
+		return getArticles(source)
 			.then(articles => {
 				store.dispatch({
 					type: 'CHANGE_SOURCE',
